@@ -4,7 +4,8 @@
     "outDir": "./.temp",
     "baseUrl": ".",
     "paths": {
-      "@/payload-types": ["./src/payload-types.ts"]
+      "@/payload-types": ["./src/payload-types.ts"],
+      "@payload-config": ["./src/payload.config.ts"]
     },
     "jsx": "preserve",
     "types": ["node"]
