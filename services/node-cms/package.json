@@ -1,0 +1,20 @@
+{
+  "name": "node-cms-service",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "ts-node src/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.11.5",
+    "@grpc/proto-loader": "^0.7.13"
+  },
+  "devDependencies": {
+    "@types/node": "22.15.30",
+    "ts-node": "^10.9.2",
+    "typescript": "5.7.3"
+  }
+}

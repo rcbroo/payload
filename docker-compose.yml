@@ -1,0 +1,37 @@
+services:
+  java-gateway:
+    build:
+      context: ./services/java-gateway
+    image: payload/java-gateway:dev
+    ports:
+      - "8080:8080"
+    depends_on:
+      - node-cms
+      - python-ai
+      - rust-hp
+      - go-concurrency
+
+  node-cms:
+    build:
+      context: .
+      dockerfile: ./services/node-cms/Dockerfile
+    image: payload/node-cms:dev
+    environment:
+      - PORT=50051
+    ports:
+      - "50051:50051"
+
+  python-ai:
+    build:
+      context: ./services/python-ai
+    image: payload/python-ai:dev
+
+  rust-hp:
+    build:
+      context: ./services/rust-hp
+    image: payload/rust-hp:dev
+
+  go-concurrency:
+    build:
+      context: ./services/go-concurrency
+    image: payload/go-concurrency:dev
