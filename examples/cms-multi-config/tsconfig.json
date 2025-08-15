@@ -12,6 +12,11 @@
       ]
     },
     "jsx": "preserve",
+    "types": [
+      "node",
+      "next",
+      "next/types/global"
+    ],
     "noEmit": true
   },
   "include": [
