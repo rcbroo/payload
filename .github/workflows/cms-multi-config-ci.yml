@@ -23,6 +23,9 @@ jobs:
       - name: Typecheck payload.config.ts
         working-directory: examples/cms-multi-config
         run: pnpm generate:types
+      - name: Generate Payload import map
+        working-directory: examples/cms-multi-config
+        run: pnpm generate:importmap
       - name: Build Next app
         working-directory: examples/cms-multi-config
         env:

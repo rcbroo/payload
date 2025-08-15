@@ -1,3 +1,28 @@
+# CMS Multi-Config Example
+
+- Next.js + Payload using only existing Payload admin UI via @payloadcms/next/routes
+- Collections: Users, Media, Pages
+- Optional integrations toggled by envs
+
+## Scripts
+- pnpm generate:types
+- pnpm generate:importmap
+- pnpm build
+- pnpm dev
+
+## Env
+See .env.example for optional toggles:
+- BUNNY_CDN_BASE_URL
+- EUREKA_URL, GATEWAY_HYSTRIX_ENABLED
+- CONDUCTOR_URL
+- OWL_ENABLED, OWL_ADAPTER_URL
+
+## Docker services
+- docker compose build
+- docker compose up eureka conductor-server conductor-ui owl-adapter java-gateway node-cms
+
+Eureka UI: http://localhost:8761
+Conductor UI: http://localhost:5000
 # CMS Multi-Configuration Example (Phase 1: CMS)
 
 This example demonstrates a functional Payload CMS running inside a Next.js app using only existing Payload UI components.
