@@ -1,1 +1,1 @@
-export { default, metadata } from './(payload)/layout'
+export { default } from './(payload)/layout'
