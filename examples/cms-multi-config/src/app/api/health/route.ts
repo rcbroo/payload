@@ -1,5 +1,5 @@
-import { NextResponse } from 'next/server'
-
 export async function GET() {
-  return NextResponse.json({ ok: true })
+  return new Response(JSON.stringify({ ok: true }), {
+    headers: { 'content-type': 'application/json' },
+  })
 }
