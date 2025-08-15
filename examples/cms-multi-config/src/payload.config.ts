@@ -5,9 +5,9 @@ import { buildConfig } from 'payload'
 import { sqliteAdapter } from '@payloadcms/db-sqlite'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 
-import { Users } from './payload/collections/Users'
-import { Media } from './payload/collections/Media'
-import { Pages } from './payload/collections/Pages'
+import { Users } from './payload/collections/Users.js'
+import { Media } from './payload/collections/Media.js'
+import { Pages } from './payload/collections/Pages.js'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -22,7 +22,9 @@ export default buildConfig({
   editor: lexicalEditor(),
   collections: [Users, Media, Pages],
   db: sqliteAdapter({
-    filename: process.env.SQLITE_DB_FILE || './.data/sqlite.db',
+    client: {
+      url: process.env.DATABASE_URI || process.env.SQLITE_DB_FILE || 'file:./.data/sqlite.db',
+    },
   }),
   sharp,
   secret: process.env.PAYLOAD_SECRET || '',
