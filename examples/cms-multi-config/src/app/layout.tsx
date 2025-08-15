@@ -1,1 +1,1 @@
-export { default } from './(payload)/layout'
+export { default } from './(payload)/layout.tsx'
