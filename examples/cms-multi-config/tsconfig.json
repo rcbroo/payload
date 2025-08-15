@@ -4,11 +4,22 @@
     "outDir": "./.temp",
     "baseUrl": ".",
     "paths": {
-      "@/payload-types": ["./src/payload-types.ts"],
-      "@payload-config": ["./src/payload.config.ts"]
+      "@/payload-types": [
+        "./src/payload-types.ts"
+      ],
+      "@payload-config": [
+        "./src/payload.config.ts"
+      ]
     },
     "jsx": "preserve",
-    "types": ["node"]
+    "types": [
+      "node"
+    ],
+    "noEmit": true
   },
-  "include": ["src", "next-env.d.ts"]
+  "include": [
+    "next-env.d.ts",
+    "src",
+    ".next/types/**/*.ts"
+  ]
 }
