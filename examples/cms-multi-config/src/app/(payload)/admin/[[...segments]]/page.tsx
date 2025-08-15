@@ -3,14 +3,14 @@ import config from '@payload-config'
 import { RootPage, generatePageMetadata } from '@payloadcms/next/views'
 import { importMap } from '../importMap.js'
 
-export async function generateMetadata(): Promise<Metadata> {
-  return generatePageMetadata({ config })
+type Args = {
+  params: { segments?: string[] }
+  searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export default async function AdminPage(props: any) {
-  return RootPage({
-    ...props,
-    config,
-    importMap,
-  })
+export const generateMetadata = ({ params, searchParams }: Args): Promise<Metadata> =>
+  generatePageMetadata({ config, params, searchParams })
+
+export default function Page({ params, searchParams }: Args) {
+  return RootPage({ config, importMap, params, searchParams })
 }
