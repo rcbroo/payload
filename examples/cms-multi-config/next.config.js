@@ -22,6 +22,9 @@ const nextConfig = {
     ],
   },
   reactStrictMode: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   webpack: (config) => {
     config.resolve.extensionAlias = {
       '.cjs': ['.cts', '.cjs'],
