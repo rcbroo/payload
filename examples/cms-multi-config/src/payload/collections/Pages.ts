@@ -18,13 +18,19 @@ export const Pages: CollectionConfig = {
   fields: [
     {
       type: 'text',
+      name: 'slug',
+      required: true,
+      unique: true,
+    },
+    {
+      type: 'text',
       name: 'title',
       required: true,
     },
     {
       type: 'richText',
       name: 'content',
-      required: true,
+      required: false,
     },
   ],
 }
