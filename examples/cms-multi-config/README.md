@@ -15,6 +15,14 @@ Quick Start
 5) PAYLOAD_SECRET=test pnpm dev
 6) Open http://localhost:3000/admin and create the first user
 
+Seeding
+- Ensure the SQLite data folder exists automatically (predev/prebuild handled), then optionally seed content and an admin:
+  - pnpm seed
+  - SEED_CREATE_ADMIN=true SEED_ADMIN_EMAIL=admin@example.com SEED_ADMIN_PASSWORD=Admin123! pnpm seed
+
+Live Preview Tunnels
+- Use clean URLs (do not embed user:pass@ in the URL). Let your browser prompt for basic auth. Embedding credentials causes browsers to block fetch('/api/users/me') on the admin UI.
+
 Build locally
 - PAYLOAD_SECRET=test pnpm build
 
