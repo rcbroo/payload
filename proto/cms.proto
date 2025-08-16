@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package cms;
+
+service CMSProcessing {
+  rpc ProcessContent (ProcessContentRequest) returns (ProcessContentResponse);
+}
+
+message ProcessContentRequest {
+  string content_id = 1;
+  string content_text = 2;
+}
+
+message ProcessContentResponse {
+  string content_id = 1;
+  string summary = 2;
+  bool ok = 3;
+}

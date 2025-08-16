@@ -1,0 +1,33 @@
+name: CMS Multi-Config Example
+
+on:
+  pull_request:
+    paths:
+      - "examples/cms-multi-config/**"
+      - ".github/workflows/cms-multi-config-ci.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.7.1
+      - name: Install deps
+        working-directory: examples/cms-multi-config
+        run: pnpm --ignore-workspace install
+      - name: Typecheck payload.config.ts
+        working-directory: examples/cms-multi-config
+        run: pnpm generate:types
+      - name: Generate Payload import map
+        working-directory: examples/cms-multi-config
+        run: pnpm generate:importmap
+      - name: Build Next app
+        working-directory: examples/cms-multi-config
+        env:
+          PAYLOAD_SECRET: test
+        run: pnpm build

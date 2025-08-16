@@ -1,0 +1,28 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./.temp",
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "@/payload-types": [
+        "./src/payload-types.ts"
+      ],
+      "@payload-config": [
+        "./src/payload.config.ts"
+      ]
+    },
+    "jsx": "preserve",
+    "types": [
+      "node",
+      "next",
+      "next/types/global"
+    ],
+    "noEmit": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "src",
+    ".next/types/**/*.ts"
+  ]
+}
