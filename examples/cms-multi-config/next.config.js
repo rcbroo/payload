@@ -35,4 +35,21 @@ const nextConfig = {
   },
 }
 
-export default withPayload(nextConfig, { devBundleServerPackages: false })
+export default withPayload({
+  ...nextConfig,
+  ...(process.env.NODE_ENV === 'development' && {
+    async headers() {
+      return [
+        {
+          source: '/api/:path*',
+          headers: [
+            {
+              key: 'Cache-Control',
+              value: 'no-cache, no-store, must-revalidate',
+            },
+          ],
+        },
+      ]
+    },
+  }),
+}, { devBundleServerPackages: false })

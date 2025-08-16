@@ -23,7 +23,7 @@ export default buildConfig({
   collections: [Users, Media, Pages],
   db: sqliteAdapter({
     client: {
-      url: process.env.DATABASE_URI || process.env.SQLITE_DB_FILE || 'file:./.data/sqlite.db',
+      url: process.env.DATABASE_URI || process.env.SQLITE_DB_FILE || 'file:' + path.resolve(dirname, '.data/sqlite.db'),
     },
   }),
   sharp,
@@ -31,4 +31,8 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
+  serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
+  cors: [
+    process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
+  ],
 })
